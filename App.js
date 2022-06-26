@@ -11,7 +11,6 @@ export default function App() {
 			<StatusBar style="light" translucent="true" />
 			<ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
 				<SafeAreaView />
-				<Spacer style={{ height: 40 }} />
 				<RecipeCard />
 			</ScrollView>
 		</View>
