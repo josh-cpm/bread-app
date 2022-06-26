@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { useState } from 'react';
 import gs from '../GlobalStyles.js';
 import initialRecipe from '../Data/recipe.js';
@@ -32,6 +32,7 @@ export default function RecipeView(props) {
 
 	return (
 		<View style={styles.card}>
+			<Text style={[styles.bodyText, styles.bold]}>Back</Text>
 			<RecipeHeader
 				onIngredientsUpdate={handleIngredientsUpdate}
 				onNumLoavesUpdate={handleNumLoavesUpdate}
@@ -48,6 +49,10 @@ export default function RecipeView(props) {
 }
 
 const styles = StyleSheet.create({
+	...gs,
+	bold: {
+		fontWeight: 'bold',
+	},
 	card: {
 		padding: 20,
 		backgroundColor: gs.cardBackgroundColor,
