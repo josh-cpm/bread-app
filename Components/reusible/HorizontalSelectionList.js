@@ -1,4 +1,4 @@
-import { Text, ScrollView, View, StyleSheet } from 'react-native';
+import { Text, ScrollView, View, StyleSheet, Alert } from 'react-native';
 import gs from '../../GlobalStyles';
 import { WhiteSmallButton } from './Buttons';
 import { decimalToPct } from '../../modules/utilities';
@@ -30,6 +30,29 @@ export default function HorizontalSelectionList(props) {
 		return formattedValue;
 	}
 
+	function handleEditPress(listTitle) {
+		Alert.prompt(
+			'Enter new amount',
+			configureAlertSubtitle(listTitle),
+			(input) => cleanUserInput(input)
+		);
+	}
+
+	function configureAlertSubtitle(listTitle) {
+		if (listTitle == 'Hydration' || listTitle === 'Levain') {
+			return 'Please enter a decimal.';
+		} else return 'Please enter a whole number.';
+	}
+
+	function cleanUserInput(input) {
+		const i = parseFloat(input);
+		if (isNaN(i)) {
+			Alert.alert('Please enter a number and try again.');
+		} else {
+			handlePress(i);
+		}
+	}
+
 	return (
 		<ScrollView contentContainerStyle={styles.contentContainer} horizontal>
 			<Text style={styles.text}>{props.listTitle}: </Text>
@@ -42,6 +65,12 @@ export default function HorizontalSelectionList(props) {
 					></WhiteSmallButton>
 				</View>
 			))}
+			<View style={styles.listItems}>
+				<WhiteSmallButton
+					title="edit"
+					onPress={() => handleEditPress(props.listTitle)}
+				></WhiteSmallButton>
+			</View>
 		</ScrollView>
 	);
 }
