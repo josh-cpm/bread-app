@@ -7,9 +7,7 @@ export default function RecipeListRow(props) {
 	const [recipeModal, setRecipeModal] = useState(false);
 
 	const handleClick = () => {
-		console.log('CLICK');
 		setRecipeModal(true);
-		console.log(recipeModal);
 	};
 
 	let recipeOverlay;
