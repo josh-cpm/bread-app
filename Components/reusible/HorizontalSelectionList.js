@@ -30,6 +30,10 @@ export default function HorizontalSelectionList(props) {
 		return formattedValue;
 	}
 
+	function handleEditPress() {
+		console.log('clicked edit');
+	}
+
 	return (
 		<ScrollView contentContainerStyle={styles.contentContainer} horizontal>
 			<Text style={styles.text}>{props.listTitle}: </Text>
@@ -42,6 +46,13 @@ export default function HorizontalSelectionList(props) {
 					></WhiteSmallButton>
 				</View>
 			))}
+			<View style={styles.listItems}>
+				<WhiteSmallButton
+					// selected={itemIsSelected(item)}
+					title="edit"
+					onPress={handleEditPress}
+				></WhiteSmallButton>
+			</View>
 		</ScrollView>
 	);
 }
