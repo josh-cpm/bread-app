@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
 			fontWeight: 'bold',
 		},
 		pressed: {
-			opacity: '.5',
+			opacity: 0.5,
 		},
 	},
 });
