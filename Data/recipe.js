@@ -4,7 +4,6 @@ const recipe = {
 		{ name: 'Water', quantity: 450, type: 'liquid' },
 		{ name: 'Salt', quantity: 12, type: 'salt' },
 		{ name: 'Levain/sourdough starter', quantity: 80, type: 'levain' },
-		{ name: 'Mixed Seeds', quantity: 100, type: 'mix-in' },
 	],
 	method: [
 		`Mix all ingredients together until no dry spots remain, then allow 8 hours of resting/rising time.`,
