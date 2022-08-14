@@ -7,6 +7,7 @@ import RecipeHeader from './cardSections/RecipeHeader.js';
 import Ingredients from './cardSections/Ingredients.js';
 import TimeTrackers from './cardSections/TimeTrackers.js';
 import UsefulInfo from './cardSections/UsefulInfo.js';
+import { TextButton } from './reusible/Buttons';
 
 export default function RecipeView(props) {
 	//TODO: Update app UI so mass isn't confusing when you're working with multiple loaves
@@ -34,7 +35,7 @@ export default function RecipeView(props) {
 	return (
 		<ScrollView showsVerticalScrollIndicator={false}>
 			<View style={styles.card}>
-				<Text style={[styles.bodyText, styles.bold]}>Back</Text>
+				<TextButton title="Back"></TextButton>
 				<RecipeHeader
 					onIngredientsUpdate={handleIngredientsUpdate}
 					onNumLoavesUpdate={handleNumLoavesUpdate}

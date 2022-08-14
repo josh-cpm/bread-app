@@ -2,6 +2,40 @@ import gs from '../../GlobalStyles';
 import { Text, StyleSheet, Pressable, View } from 'react-native';
 import { useState } from 'react';
 
+export function TextButton(props) {
+	const [pressState, setPressState] = useState(false);
+
+	function chooseStyle() {
+		if (pressState) {
+			return 'pressed';
+		}
+
+		return 'default';
+	}
+
+	function onPressIn() {
+		setPressState(true);
+	}
+
+	function onPressOut() {
+		setPressState(false);
+	}
+
+	return (
+		<Pressable
+			onPressIn={onPressIn}
+			onPressOut={onPressOut}
+			onPress={props.onPress}
+		>
+			<Text
+				style={[styles.textButton[chooseStyle()], styles.textButton.default]}
+			>
+				{props.title.toString()}
+			</Text>
+		</Pressable>
+	);
+}
+
 export function WhiteSmallButton(props) {
 	const [pressState, setPressState] = useState(false);
 
@@ -73,6 +107,15 @@ const styles = StyleSheet.create({
 			...gs.bodyText,
 			color: gs.cardBackgroundColor,
 			textAlign: 'center',
+		},
+	},
+	textButton: {
+		default: {
+			...gs.bodyText,
+			fontWeight: 'bold',
+		},
+		pressed: {
+			opacity: '.5',
 		},
 	},
 });
