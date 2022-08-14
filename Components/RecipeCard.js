@@ -35,7 +35,7 @@ export default function RecipeView(props) {
 	return (
 		<ScrollView showsVerticalScrollIndicator={false}>
 			<View style={styles.card}>
-				<TextButton title="Back"></TextButton>
+				<TextButton onPress={props.exitRecipe} title="Back"></TextButton>
 				<RecipeHeader
 					onIngredientsUpdate={handleIngredientsUpdate}
 					onNumLoavesUpdate={handleNumLoavesUpdate}

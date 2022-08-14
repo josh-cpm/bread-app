@@ -17,9 +17,13 @@ export default function RecipeListRow(props) {
 		recipeOverlay = <RecipeCard></RecipeCard>;
 	}
 
+	const handleExitRecipe = () => {
+		setRecipeModal(false);
+	};
+
 	return (
 		<Pressable onPress={handleClick}>
-			{recipeModal && <RecipeCard></RecipeCard>}
+			{recipeModal && <RecipeCard exitRecipe={handleExitRecipe}></RecipeCard>}
 			<Text style={styles.sectionTitle}>
 				{props.recipe.recipeMetaData.title}
 			</Text>
