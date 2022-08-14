@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, ScrollView, Text } from 'react-native';
 import { useState } from 'react';
 import gs from '../GlobalStyles.js';
 import initialRecipe from '../Data/recipe.js';
@@ -10,6 +10,7 @@ import UsefulInfo from './cardSections/UsefulInfo.js';
 
 export default function RecipeView(props) {
 	//TODO: Update app UI so mass isn't confusing when you're working with multiple loaves
+	//TODO: Let users add ad-hoc amounts for dough mass, hydration, etc
 
 	// State
 	const [ingredients, setIngredients] = useState(initialRecipe.ingredients);
@@ -31,20 +32,22 @@ export default function RecipeView(props) {
 	}
 
 	return (
-		<View style={styles.card}>
-			<Text style={[styles.bodyText, styles.bold]}>Back</Text>
-			<RecipeHeader
-				onIngredientsUpdate={handleIngredientsUpdate}
-				onNumLoavesUpdate={handleNumLoavesUpdate}
-				ingredients={ingredients}
-				numLoaves={numLoaves}
-				recipeDefaults={recipeDefaults}
-				recipeMetaData={recipeMetaData}
-			/>
-			<Ingredients ingredients={ingredients} />
-			<TimeTrackers steps={stepsToTrack} />
-			<UsefulInfo ingredients={ingredients} />
-		</View>
+		<ScrollView showsVerticalScrollIndicator={false}>
+			<View style={styles.card}>
+				<Text style={[styles.bodyText, styles.bold]}>Back</Text>
+				<RecipeHeader
+					onIngredientsUpdate={handleIngredientsUpdate}
+					onNumLoavesUpdate={handleNumLoavesUpdate}
+					ingredients={ingredients}
+					numLoaves={numLoaves}
+					recipeDefaults={recipeDefaults}
+					recipeMetaData={recipeMetaData}
+				/>
+				<Ingredients ingredients={ingredients} />
+				<TimeTrackers steps={stepsToTrack} />
+				<UsefulInfo ingredients={ingredients} />
+			</View>
+		</ScrollView>
 	);
 }
 
