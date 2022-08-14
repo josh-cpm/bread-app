@@ -22,7 +22,7 @@ const recipe = {
 		doughMass: [650, 800, 1150, 1250, 1500],
 		doughHydration: [0.7, 0.75, 0.78, 0.8, 0.85],
 		numLoaves: [1, 2, 3, 4],
-		levainPct: [0, 0.1, 0.12, 0.15, 0.2, 0.25, 0.3],
+		levainPct: [0.1, 0.15, 0.2, 0.25, 0.3],
 		stepsToTrack: ['Autolyze', 'Bulk Fermentation', 'Proof'],
 	},
 };
